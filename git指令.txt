@@ -1,0 +1,11 @@
+1,下载代码
+git clone "git上复制的链接";
+
+2,将文件添加到git上面
+git add .
+
+3,添加提交注释
+git commit -m "注释"
+
+4，将代码提交到远程控制库
+git push origin master
