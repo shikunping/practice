@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>dialog弹出框benpaobenpao</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+
+</head>
+<body>
+
+
+
+<script>
+       
+window.alert = function(txt,title)  
+{  
+    var shield = document.createElement("DIV");  
+    shield.id = "shield";  
+    shield.style.position = "absolute";  
+    shield.style.left = "0px";  
+    shield.style.top = "0px";  
+    shield.style.width = "100%";  
+    shield.style.height = document.body.scrollHeight+"px";  
+    shield.style.background = "rgba(0,0,0,0.4)";  
+    shield.style.textAlign = "center";  
+    shield.style.zIndex = "10000";  
+    shield.style.filter = "alpha(opacity=0)";  
+    var alertFram = document.createElement("DIV");  
+    alertFram.id="alertFram";  
+    alertFram.style.position = "absolute";  
+    alertFram.style.left = "50%";  
+    alertFram.style.top = "50%";  
+    alertFram.style.marginLeft = "-150px";  
+    alertFram.style.marginTop = "-83px";  
+    alertFram.style.width = "300px";  
+    alertFram.style.height = "166px";  
+    alertFram.style.background = "#ccc";  
+    alertFram.style.textAlign = "center";  
+	alertFram.style.borderRadius = "6px";	
+    alertFram.style.zIndex = "10001";
+
+	if(!title){
+		title = "温馨提示";
+	}
+	strHtml = "<div style=\"width: 100%;height: 100%;background-color: #fff;border-radius: 6px;\">";
+	strHtml += "<h3 style=\"font-size: 16px;color: #0d0d0d;padding: 23px 0 18px 0;\">"+title+"</h3>";
+	strHtml += "<p style=\"font-size: 14px;color: #666666;padding: 0 60px 18px 60px;border-bottom: 1px solid #e8e8e8;line-height: 20px;height: 40px;\">"+ txt +"</p>";
+	strHtml += "<a style=\"font-size: 16px;color: #aacc36;margin-top: 10px;display: inline-block;\" onclick=\"doOk()\">确定</a>";
+	strHtml += "</div>";
+	
+    alertFram.innerHTML = strHtml;  
+    document.body.appendChild(alertFram);  
+    document.body.appendChild(shield);  
+	alertFram.onclick = 'doOk';	
+    var c = 0;  
+    this.doAlpha = function(){  
+        if (c++ > 20){clearInterval(ad);return 0;}  
+        shield.style.filter = "alpha(opacity="+c+");";  
+    }  
+    var ad = setInterval("doAlpha()",5);  
+    this.doOk = function(){  
+        alertFram.style.display = "none";  
+        shield.style.display = "none";  
+    }  
+	var shieldE = document.getElementById('shield');
+	shieldE.addEventListener("click", doOk, false); 
+	
+    alertFram.focus();  
+    document.body.onselectstart = function(){return false;};  
+}  
+alert("认证信息已成功提交！正在审核，请耐心等待！","提示");
+
+</script>
+
+</body>
+</html>
