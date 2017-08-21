@@ -1,2 +1,4 @@
 # practice
-这个文件夹主要存放平时做的练习
+rewrite_alert
+
+![效果](https://raw.githubusercontent.com/shikunping/images/master/alert.png)
